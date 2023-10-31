@@ -17,11 +17,11 @@ For Getting Started clone the repository:
 Copy code below: 
 
 ```
-git clone https://github.com/arthurcadore/capacitaApps
+git clone https://github.com/arthurcadore/capacita-sig
 ```
 Navigate to the project directory:
 ```
-cd ./capacitaApps
+cd ./capacita-sig
 ```
 
 ---
