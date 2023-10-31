@@ -3,8 +3,6 @@
 ### Author: Arthur Cadore M. Barcella
 ### Network Training Analyst at Intelbras
 
-This project utilizes Docker Containers to host Intelbras's SIG Application to manage Intelbras's GPON devices. 
-
 Prerequisites
 Before you begin, ensure you have the following installed on your system:
 
