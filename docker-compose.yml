@@ -15,7 +15,7 @@ services:
     # Mount local directories as volumes inside the container:
     volumes:
       # Mount directory to database files:
-      - ./database:/var/lib/pgsql/data
+      - ./database/main:/var/lib/postgresql/9.5/main
       # Mount directory to application logs:
       - ./logs/:/usr/bin/imn/logs/
     build:
