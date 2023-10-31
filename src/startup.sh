@@ -3,6 +3,12 @@
 # Github: arthurcadore
 
 # Start the PostgreSQL service in the background and print a message
+echo "Author: Arthur Cadore M. Barcella"
+echo "Github: arthurcadore"
+
+echo "Configurando diretorio para mapeamento de volume"
+chown -R postgres:postgres /var/lib/postgresql/9.5/main
+
 echo "Iniciando o processo do postgresql"
 service postgresql start & 
 
