@@ -4,7 +4,7 @@
 ### Network Training Analyst at Intelbras
 
 Prerequisites
-Before you begin, ensure you have the following installed on your system:
+Before you begin, ensure you have the following packages installed on your system:
 
 - Git version 2.34.1
 - Docker version 24.0.6, build ed223bc
