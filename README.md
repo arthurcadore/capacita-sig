@@ -38,9 +38,8 @@ chmod +x ./installDocker.sh
 Run the command below to start docker-compose file: 
 
 ```
-docker compose -d up & 
+docker compose up & 
 ```
-The "-d" flag runs the containers in detached mode, meaning they will run in the background.
 
 The "&" character creates a process id for the command inputed in, with means that the container will not stop when you close the terminal. 
 
