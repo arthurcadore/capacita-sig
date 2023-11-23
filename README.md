@@ -34,6 +34,8 @@ chmod +x ./installDocker.sh
 ./installDocker.sh
 ```
 
+If you had to install docker, please remember to reboot you machine to grant user privileges for docker application. 
+
 ### Start Application's Container: 
 Run the command below to start docker-compose file: 
 
