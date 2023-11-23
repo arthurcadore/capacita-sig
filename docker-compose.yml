@@ -8,16 +8,19 @@ services:
   # Define a new docker service named "sig_intelbras"
   sig_intelbras:
     # Set the name of the container instance to "sig-capacita"
-    container_name: sig-capacita 
+    container_name: sig-capacita
     # Map host ports 8080 and 8081 to container ports 8080 and 8081 respectively
     ports:
       - '8080-8081:8080-8081'
     # Mount local directories as volumes inside the container:
     volumes:
       # Mount directory to database files:
-      - ./database/main:/var/lib/postgresql/9.5/main
+      - sigdb:/var/lib/postgresql/9.5/main
       # Mount directory to application logs:
       - ./logs/:/usr/bin/imn/logs/
     build:
       context: .
       dockerfile: Dockerfile
+
+volumes:
+  sigdb:
