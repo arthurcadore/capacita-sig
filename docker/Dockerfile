@@ -688,7 +688,7 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -yq \
   zlib1g:amd64
 
 # Copy the "startup.sh" script from the local "./src/" directory to the container.
-COPY startup.sh /usr/local/bin/startup.sh
+COPY docker/startup.sh /usr/local/bin/startup.sh
 
 # Give executable permissions to the "startup.sh" script to execute. 
 RUN chmod +x /usr/local/bin/startup.sh
