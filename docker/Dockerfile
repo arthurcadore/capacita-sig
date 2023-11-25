@@ -10,7 +10,7 @@ FROM ubuntu:16.04
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -yq \
   -o Dpkg::Options::="--force-confdef" \
   -o Dpkg::Options::="--force-confold" \
-   accountsservice \
+  accountsservice \
   acl \
   acpid \
   adduser \
@@ -688,10 +688,12 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -yq \
   zlib1g:amd64
 
 # Copy the "startup.sh" script from the local "./src/" directory to the container.
-# COPY ./docker/startup.sh /project/startup.sh
-RUN mkdir -p /usr/bin/imn/config/
+COPY ./startup.sh /usr/local/bin/startup.sh
+
 # Give executable permissions to the "startup.sh" script to execute. 
 RUN chmod +x /usr/local/bin/startup.sh
+
+RUN mkdir -p /usr/bin/imn/config/
 
 # Starts the container by running the startup.sh script. 
 CMD ["/usr/local/bin/startup.sh"]

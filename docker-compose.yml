@@ -12,7 +12,6 @@ services:
       - '8080-8081:8080-8081'
     # Mount local directories as volumes inside the container:
     volumes:
-      - "./docker/startup.sh:/usr/local/bin/startup.sh"
       - "./app/config/log.properties:/usr/bin/imn/config/"
       - "./app/imn-core.jar:/project/imn-core.jar"
       - "./app/imn-webapp.jar:/project/imn-webapp.jar"
