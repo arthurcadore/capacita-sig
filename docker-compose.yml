@@ -20,7 +20,7 @@ services:
       - sigdb:/var/lib/postgresql/9.5/main
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: ./docker/Dockerfile
 
 # Define Docker volumes to mount database files:
 volumes:
