@@ -1,0 +1,4 @@
+copy project /config files to /usr/bin/imn/config/
+
+mkdir -p /usr/bin/imn/config/
+cp config/log.properties /usr/bin/imn/config/
