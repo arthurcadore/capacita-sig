@@ -42,5 +42,13 @@ sudo -u postgres psql -c "\l"
 
 # Start the core application using Java and print a message
 echo "###########################################################"
-echo "Iniciando a aplicação SIG Legado"
-exec java -jar /project/imn-core.jar && java -jar /project/imn-webapp.jar &
+echo "Iniciando a aplicação core"
+exec /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java -jar /usr/bin/imn/imn-core.jar &
+
+# Start the web application using Java and print a message
+echo "###########################################################"
+echo "Iniciando a aplicação web"
+exec /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java -jar /usr/bin/imn/imn-webapp.jar &
+
+# Keep the script running by tailing /dev/null
+tail -f /dev/null
