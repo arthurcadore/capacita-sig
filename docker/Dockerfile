@@ -7,7 +7,10 @@
 FROM ubuntu:16.04
 
 # Install SIG dependencies on container: 
-RUN apt-get update && apt-get install -y accountsservice \
+RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -yq \
+  -o Dpkg::Options::="--force-confdef" \
+  -o Dpkg::Options::="--force-confold" \
+   accountsservice \
   acl \
   acpid \
   adduser \
