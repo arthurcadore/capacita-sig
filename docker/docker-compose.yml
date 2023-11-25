@@ -6,14 +6,18 @@
 version: '3.8'
 services:
   sig_intelbras:
-    container_name: sig-capacita
+    container_name: sig-capacita-v2
     # Map container ports 8080 and 8081.
     ports:
       - '8080-8081:8080-8081'
     # Mount local directories as volumes inside the container:
     volumes:
+      - "./docker/startup.sh:/usr/local/bin/startup.sh"
+      - "./app/config/log.properties:/usr/bin/imn/config/"
+      - "./app/imn-core.jar:/project/imn-core.jar"
+      - "./app/imn-webapp.jar:/project/imn-webapp.jar"
+      - "./logs:/project/logs"
       - sigdb:/var/lib/postgresql/9.5/main
-      - ./logs/:/usr/bin/imn/logs/
     build:
       context: .
       dockerfile: Dockerfile

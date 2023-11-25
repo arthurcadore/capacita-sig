@@ -43,15 +43,12 @@ RUN apt-get update && apt-get install -y accountsservice \
   colord-data \
   command-not-found \
   command-not-found-data \
-  #console-setup \
-  #console-setup-linux \
   coreutils \
   cpio \
   crda \
   cron \
   cryptsetup \
   cryptsetup-bin \
-  curl \
   dash \
   dbus \
   dconf-gsettings-backend:amd64 \
@@ -132,7 +129,6 @@ RUN apt-get update && apt-get install -y accountsservice \
   fonts-dejavu-extra \
   fonts-ubuntu-font-family-console \
   friendly-recovery \
-  ftp \
   fuse \
   gawk \
   gcc-5-base:amd64 \
@@ -140,8 +136,6 @@ RUN apt-get update && apt-get install -y accountsservice \
   geoip-database \
   gettext-base \
   gir1.2-glib-2.0:amd64 \
-  git \
-  git-man \
   glib-networking:amd64 \
   glib-networking-common \
   glib-networking-services \
@@ -187,7 +181,6 @@ RUN apt-get update && apt-get install -y accountsservice \
   java-common \
   javascript-common \
   kbd \
-  # keyboard-configuration \
   klibc-utils \
   kmod \
   krb5-locales \
@@ -621,7 +614,6 @@ RUN apt-get update && apt-get install -y accountsservice \
   rabbitmq-server \
   readline-common \
   rename \
-  # resolvconf \
   rsync \
   rsyslog \
   run-one \
@@ -649,8 +641,6 @@ RUN apt-get update && apt-get install -y accountsservice \
   tcl \
   tcl8.6 \
   tcpd \
-  tcpdump \
-  telnet \
   tftpd-hpa \
   time \
   tk \
@@ -660,14 +650,12 @@ RUN apt-get update && apt-get install -y accountsservice \
   ubuntu-advantage-tools \
   ubuntu-cloudimage-keyring \
   ubuntu-keyring \
-  # ubuntu-minimal \
   ubuntu-mono \
   ubuntu-release-upgrader-core \
   ubuntu-server \
   ubuntu-standard \
   ucf \
   udev \
-  ufw \
   uidmap \
   unattended-upgrades \
   update-manager-core \
@@ -676,12 +664,6 @@ RUN apt-get update && apt-get install -y accountsservice \
   usbutils \
   util-linux \
   uuid-runtime \
-  vim \
-  vim-common \
-  vim-runtime \
-  vim-tiny \
-  vlan \
-  wget \
   whiptail \
   wireless-regdb \
   x11-common \
@@ -703,10 +685,10 @@ RUN apt-get update && apt-get install -y accountsservice \
   zlib1g:amd64
 
 # Copy the "startup.sh" script from the local "./src/" directory to the container.
-COPY ./src/startup.sh /home/startup.sh
-
+# COPY ./docker/startup.sh /project/startup.sh
+RUN mkdir -p /usr/bin/imn/config/
 # Give executable permissions to the "startup.sh" script to execute. 
-RUN chmod +x /home/startup.sh
+RUN chmod +x /usr/local/bin/startup.sh
 
 # Starts the container by running the startup.sh script. 
-CMD ["/home/startup.sh"]
+CMD ["/usr/local/bin/startup.sh"]
