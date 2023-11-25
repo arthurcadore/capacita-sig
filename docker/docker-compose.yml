@@ -1,0 +1,23 @@
+# Main composition file for SIG Application Container.
+# Author: Arthur Cadore M. Barcella
+# Github: arthurcadore
+# Capacitação Redes - PV Intelbras
+
+version: '3.8'
+services:
+  sig_intelbras:
+    container_name: sig-capacita
+    # Map container ports 8080 and 8081.
+    ports:
+      - '8080-8081:8080-8081'
+    # Mount local directories as volumes inside the container:
+    volumes:
+      - sigdb:/var/lib/postgresql/9.5/main
+      - ./logs/:/usr/bin/imn/logs/
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+# Define Docker volumes to mount database files:
+volumes:
+  sigdb:

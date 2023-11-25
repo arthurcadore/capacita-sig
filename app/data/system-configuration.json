@@ -1,0 +1,12 @@
+{
+    "applicationServerAddress": "",
+    "userMaxSimultaneousAccess": ,
+    "mailServerSmtp": "",
+    "mailServerPort": ,
+    "mailServerEmail": "",
+    "mailServerPassword": "",
+    "mailServerUseTls": ,
+    "adminMail": "",
+    "adminUsername": "",
+    "adminPassword": ""
+}
