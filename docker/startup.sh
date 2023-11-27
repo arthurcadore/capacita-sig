@@ -21,24 +21,24 @@ echo "Reiniciando o RabbitMQ server"
 service rabbitmq-server restart
 
 # Use psql to execute SQL commands
-sleep 10
-echo "Criando usuário intelbras e banco de dados imn"
-sudo -u postgres psql -c "CREATE USER intelbras WITH PASSWORD 'intelbras';"
-sudo -u postgres psql -c "CREATE DATABASE imn LC_COLLATE='en_US.UTF8' LC_CTYPE='en_US.UTF8' TEMPLATE=template0;"
-sudo -u postgres psql -c "ALTER DATABASE imn OWNER TO intelbras;"
+#sleep 10
+#echo "Criando usuário intelbras e banco de dados imn"
+#sudo -u postgres psql -c "CREATE USER intelbras WITH PASSWORD 'intelbras';"
+#sudo -u postgres psql -c "CREATE DATABASE imn LC_COLLATE='en_US.UTF8' LC_CTYPE='en_US.UTF8' TEMPLATE=template0;"
+#sudo -u postgres psql -c "ALTER DATABASE imn OWNER TO intelbras;"
 
 # Exibir usuários e bancos para verificar
-echo "Usuários no PostgreSQL:"
-sudo -u postgres psql -c "\du"
+#echo "Usuários no PostgreSQL:"
+#sudo -u postgres psql -c "\du"
 
-echo "Bancos de dados no PostgreSQL:"
-sudo -u postgres psql -c "\l"
+#echo "Bancos de dados no PostgreSQL:"
+#sudo -u postgres psql -c "\l"
 
 # Wait until the PostgreSQL database becomes ready
-# while ! pg_isready -q -d imn -h 127.0.0.1 -U intelbras; do
-# 	echo "Aguardando o Banco de dados PostgreSQL iniciar..."
-# 	sleep 1
-#done
+while ! pg_isready -q -d imn -h database -U intelbras; do
+ 	echo "Aguardando o Banco de dados PostgreSQL iniciar..."
+ 	sleep 1
+done
 
 # Start the core application using Java and print a message
 echo "###########################################################"

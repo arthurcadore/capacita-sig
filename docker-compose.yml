@@ -16,11 +16,21 @@ services:
       - "./app/imn-core.jar:/project/imn-core.jar"
       - "./app/imn-webapp.jar:/project/imn-webapp.jar"
       - "./logs:/project/logs"
-      - sigdb:/var/lib/postgresql/9.5/main
     build:
       context: .
       dockerfile: ./docker/Dockerfile
 
-# Define Docker volumes to mount database files:
+  database:
+    container_name: database
+    environment:
+      POSTGRES_PASSWORD: intelbras
+    build:
+      context: . 
+      dockerfile: ./database/Dockerfile
+    ports: 
+      - '5432:5432'
+    volumes:
+      - 'postgres-data:/var/lib/postgresql/data'
+
 volumes:
-  sigdb:
+  postgres-data:
