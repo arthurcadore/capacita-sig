@@ -40,6 +40,9 @@ sudo -u postgres psql -c "\l"
 # 	sleep 1
 #done
 
+echo "Verificando e matando processos nas portas 8080 e 8081..."
+lsof -i :8080 -i :8081 | awk 'NR!=1 {print $2}' | xargs -r kill -9
+
 # Start the core application using Java and print a message
 echo "###########################################################"
 echo "Iniciando a aplicação core"
