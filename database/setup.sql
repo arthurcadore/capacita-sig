@@ -1,3 +1,9 @@
+-- Main composition file for PostgreSQL DB
+-- Author: Arthur Cadore M. Barcella
+-- Github: arthurcadore
+-- Capacitação Redes - PV Intelbras
+
+
 -- Create user 'intelbras' with password 'intelbras'
 CREATE USER intelbras WITH PASSWORD 'intelbras';
 
