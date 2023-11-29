@@ -1,8 +1,5 @@
 # Intelbras's SIG Application with Docker
 
-### Author: Arthur Cadore M. Barcella
-### Network Training Analyst at Intelbras
-
 Prerequisites
 Before you begin, ensure you have the following packages installed on your system:
 
