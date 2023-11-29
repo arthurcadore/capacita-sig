@@ -22,8 +22,8 @@ service rabbitmq-server restart
 
 # Wait until the PostgreSQL database becomes ready
 while ! pg_isready -q -d imn -h database -U intelbras; do
- 	echo "Aguardando o Banco de dados PostgreSQL iniciar..."
- 	sleep 1
+  echo "Aguardando o Banco de dados PostgreSQL iniciar..."
+  sleep 1
 done
 
 echo "Usuários no PostgreSQL:"
@@ -40,7 +40,7 @@ exec /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java -jar /project/imn-core.jar &
 # Start the web application using Java and print a message
 echo "###########################################################"
 echo "Iniciando a aplicação web"
-exec /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java -jar /project/imn-core.jar &
+exec /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java -jar /project/imn-webapp.jar &
 
 # Keep the script running by tailing /dev/null
 tail -f /dev/null
