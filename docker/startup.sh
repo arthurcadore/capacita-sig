@@ -34,12 +34,6 @@ sudo -u postgres psql -c "\du"
 echo "Bancos de dados no PostgreSQL:"
 sudo -u postgres psql -c "\l"
 
-# Wait until the PostgreSQL database becomes ready
-# while ! pg_isready -q -d imn -h 127.0.0.1 -U intelbras; do
-# 	echo "Aguardando o Banco de dados PostgreSQL iniciar..."
-# 	sleep 1
-#done
-
 echo "Verificando e matando processos nas portas 8080 e 8081..."
 lsof -i :8080 -i :8081 | awk 'NR!=1 {print $2}' | xargs -r kill -9
 
