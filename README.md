@@ -29,12 +29,10 @@ cd ./capacita-sig
 If you don't have Docker (and Docker-compose) installed on your system yet, it can be installed by run the following commands (Script for Ubuntu 22.04): 
 
 ```
-chmod +x ./installDocker.sh
-
-./installDocker.sh
+./docker/installDocker.sh
 ```
 
-If you had to install docker, please remember to reboot you machine to grant user privileges for docker application. 
+**If you had to install docker, please remember to reboot you machine to grant user privileges for docker application.** 
 
 ### Start Application's Container: 
 Run the command below to start docker-compose file: 
@@ -62,6 +60,15 @@ docker exec -it sig-capacita bash
 The command above will start a bash process in the application container, that with the -it (interative) flag will display the prompt to user. 
 
 To exit from container's command line interface, use the command `exit`.  
+
+--- 
+
+### Access Application database:
+
+By default, docker-compose.yml comes with a port mapping to expose the PostgreSQL port from database's container externally. The default port to PostgreSQL DB (which is the same that is mapped externally by default) is `5432`.
+
+
+So, to access the application database you can use any SQL client software, as [HeidiSQL](https://www.heidisql.com/) for example, the credentials are configured in `./database/setup.sql`. 
 
 --- 
 ### Stop Container: 
