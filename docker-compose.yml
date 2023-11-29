@@ -13,8 +13,6 @@ services:
     # Mount local directories as volumes inside the container:
     volumes:
       - "./app/config/log.properties:/usr/bin/imn/config/log.properties"
-      - "./app/config/app.constant_base.js:/usr/bin/imn/BOOT-INF/classes/static/app/app.constant_base.js"
-      - "./app/config/app.constant_base.js:/project/BOOT-INF/classes/static/app/app.constant_base.js"
       - "./app/imn-core.jar:/project/imn-core.jar"
       - "./app/imn-webapp.jar:/project/imn-webapp.jar"
       - "./logs:/project/logs"
