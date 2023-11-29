@@ -3,7 +3,7 @@
 # Github: arthurcadore
 # Capacitação Redes - PV Intelbras
 
-# Use the base image "arthurcadore/sig_intelbras:1.0.17.13"
+# Use the base image "ubuntu:16.04":
 FROM ubuntu:16.04
 
 # Install SIG dependencies on container:
@@ -21,12 +21,13 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -yq \
   postgresql-contrib-9.5 \
   rabbitmq-server 
 
-# Copy the "startup.sh" script from the local "./src/" directory to the container.
+# Copy the "startup.sh" script from the local "./docker/" directory to the container.
 COPY docker/startup.sh /usr/local/bin/startup.sh
 
 # Give executable permissions to the "startup.sh" script to execute.
 RUN chmod +x /usr/local/bin/startup.sh
 
+# Copy the "imn" directory from the local "./docker/" directory to the container.
 RUN mkdir -p /usr/bin/imn/config/
 
 # Starts the container by running the startup.sh script.

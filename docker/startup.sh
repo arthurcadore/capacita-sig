@@ -20,6 +20,7 @@ while ! pg_isready -q -d imn -h database -U intelbras; do
   sleep 1
 done
 
+# Verify users and databases in the PostgreSQL database:
 echo "Usuários no PostgreSQL:"
 PGPASSWORD=intelbras psql -h database -U intelbras -d imn -c "\du"
 

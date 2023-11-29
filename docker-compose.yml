@@ -5,6 +5,8 @@
 
 version: '3.8'
 services:
+
+   # Sig application container.
   sig_intelbras:
     container_name: sig-capacita-v2
     # Map container ports 8080 and 8081.
@@ -20,6 +22,7 @@ services:
       context: .
       dockerfile: ./docker/Dockerfile
 
+   # Database container.
   database:
     container_name: database
     environment:
