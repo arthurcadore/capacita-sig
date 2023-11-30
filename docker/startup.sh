@@ -20,19 +20,23 @@ service rabbitmq-server start
 echo "Reiniciando o RabbitMQ server"
 service rabbitmq-server restart
 
+# Create Locale UFT-8 to configure database tables
+echo "Configurando Locales para codificar o banco de dados:"
+locale-gen en_US.UTF-8
+
 # Use psql to execute SQL commands
 sleep 10
-echo "Criando usuário intelbras e banco de dados imn"
-sudo -u postgres psql -c "CREATE USER intelbras WITH PASSWORD 'intelbras';"
-sudo -u postgres psql -c "CREATE DATABASE imn LC_COLLATE='en_US.UTF8' LC_CTYPE='en_US.UTF8' TEMPLATE=template0;"
-sudo -u postgres psql -c "ALTER DATABASE imn OWNER TO intelbras;"
+echo "Criando usuário intelbras e banco de dados imn..."
+su - postgres -c "psql -c 'CREATE USER intelbras WITH PASSWORD '\''intelbras'\'';'"
+su - postgres -c "psql -c 'CREATE DATABASE imn LC_COLLATE='\''en_US.UTF8'\'' LC_CTYPE='\''en_US.UTF8'\'' TEMPLATE=template0;'"
+su - postgres -c "psql -c 'ALTER DATABASE imn OWNER TO intelbras;'"
 
 # Exibir usuários e bancos para verificar
 echo "Usuários no PostgreSQL:"
-sudo -u postgres psql -c "\du"
+su - postgres -c "psql -c '\du'"
 
 echo "Bancos de dados no PostgreSQL:"
-sudo -u postgres psql -c "\l"
+su - postgres -c "psql -c '\l'"
 
 echo "Verificando e matando processos nas portas 8080 e 8081..."
 lsof -i :8080 -i :8081 | awk 'NR!=1 {print $2}' | xargs -r kill -9
@@ -45,7 +49,7 @@ exec /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java -jar /project/imn-core.jar &
 # Start the web application using Java and print a message
 echo "###########################################################"
 echo "Iniciando a aplicação web"
-exec /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java -jar /project/imn-core.jar &
+exec /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java -jar /project/imn-webapp.jar &
 
 # Keep the script running by tailing /dev/null
 tail -f /dev/null
