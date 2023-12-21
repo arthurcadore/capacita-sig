@@ -21,7 +21,12 @@ services:
     build:
       context: .
       dockerfile: ./docker/Dockerfile
-
+    environment:
+      - DATABASE_IP=database
+      - DATABASE_USER=intelbras
+      - DATABASE_PASS=intelbras
+      - SERVER_PORT=8080
+      
    # Database container.
   database:
     container_name: database
