@@ -22,10 +22,10 @@ done
 
 # Verify users and databases in the PostgreSQL database:
 echo "Usuários no PostgreSQL:"
-PGPASSWORD=intelbras psql -h database -U intelbras -d imn -c "\du"
+PGPASSWORD=$DATABASE_PASS psql -h $DATABASE_IP -U $DATABASE_USER -d imn -c "\du"
 
 echo "Bancos de dados no PostgreSQL:"
-PGPASSWORD=intelbras psql -h database -U intelbras -d imn -c "\l"
+PGPASSWORD=$DATABASE_PASS psql -h $DATABASE_IP -U $DATABASE_USER -d imn -c "\l"
 
 # Start the core application using Java and print a message
 echo "###########################################################"
